@@ -16,6 +16,23 @@ function authenticateJWT(req, res, next) {
   }
 }
 
+// function authenticateJWT(req, res, next) {
+//   try {
+//     const authHeader = req.headers.authorization;
+//     if (authHeader && authHeader.startsWith('Bearer ')) {
+//       const token = authHeader.split(' ')[1]; // Extract token
+//       const payload = jwt.verify(token, SECRET_KEY);
+//       req.user = payload; // create a current user
+//       return next();
+//     } else {
+//       return res.status(401).json({ message: 'Unauthorized' });
+//     }
+//   } catch (err) {
+//     return res.status(401).json({ message: 'Unauthorized' });
+//   }
+// }
+
+
 /** Middleware: Requires user is authenticated. */
 
 function ensureLoggedIn(req, res, next) {
